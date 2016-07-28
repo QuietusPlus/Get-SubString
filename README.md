@@ -1,15 +1,13 @@
 # Description
 
-Get -InputObject and return everything between -From and -Until (or until -EmptyLine).
+Get `-InputObject` and return everything between `-From` and `-Until` (or until `-EmptyLine`). The script currently supports the following operations:
 
-The script currently supports the following operations:
-
-| Example Title | Input | From | Until |
-|:--------------|:------|:-----|:------|
-| Get -InputObject -From until last line | `-InputObject` | `-From` | Last line |
-| Get -InputObject -From until empty line | `-InputObject` | `-From` | Empty line |
-| Get -InputObject -From -Until | `-InputObject` | `-From` | `-Until` |
-| Get -InputObject -Until | `-InputObject` | First line | `-Until` |
+| Example Title | `-InputObject` | `-From` | `-Until` | `-EmptyLine` |
+|:--------------|:--------------:|:-------:|:--------:|:------------:|
+| Get `-InputObject` `-From` until last line | X | X | | |
+| Get `-InputObject` `-From` until empty line | X | X | | X |
+| Get `-InputObject` `-From` `-Until` | X | X | X | |
+| Get `-InputObject` from first line `-Until` | X | | X | |
 
 # Examples
 
