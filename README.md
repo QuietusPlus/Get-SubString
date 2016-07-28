@@ -4,9 +4,9 @@ Get -InputObject and return everything between -From and -Until (or until -Empty
 
 The script currently supports the following operations:
 
-|Example Title|Input|From|Until|
-|-- |-- |-- |-- |-- |
-| Get -InputObject -From until last line| `-InputObject` | `-From` | Last line |
+| Example Title | Input | From | Until |
+|:--------------|:------|:-----|:------|
+| Get -InputObject -From until last line | `-InputObject` | `-From` | Last line |
 | Get -InputObject -From until empty line | `-InputObject` | `-From` | Empty line |
 | Get -InputObject -From -Until | `-InputObject` | `-From` | `-Until` |
 | Get -InputObject -Until | `-InputObject` | First line | `-Until` |
