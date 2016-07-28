@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Get-SubString by QuietusPlus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Get-SubString</h1>
+      <h2 class="project-tagline">A PowerShell script that returns everything between -From and -Until (or -EmptyLine).</h2>
+      <a href="https://github.com/QuietusPlus/Get-SubString" class="btn">View on GitHub</a>
+      <a href="https://github.com/QuietusPlus/Get-SubString/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/QuietusPlus/Get-SubString/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h1>
+
+<p>Get <code>-InputObject</code> and return everything between <code>-From</code> and <code>-Until</code> (or <code>-EmptyLine</code>).</p>
+
+<p>The script currently supports the following operations:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Example Title</th>
+<th align="left">Input</th>
+<th align="left">From</th>
+<th align="left">Until</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Get -InputObject -From until last line</td>
+<td align="left"><code>-InputObject</code></td>
+<td align="left"><code>-From</code></td>
+<td align="left">Last line</td>
+</tr>
+<tr>
+<td align="left">Get -InputObject -From until empty line</td>
+<td align="left"><code>-InputObject</code></td>
+<td align="left"><code>-From</code></td>
+<td align="left">Empty line</td>
+</tr>
+<tr>
+<td align="left">Get -InputObject -From -Until</td>
+<td align="left"><code>-InputObject</code></td>
+<td align="left"><code>-From</code></td>
+<td align="left"><code>-Until</code></td>
+</tr>
+<tr>
+<td align="left">Get -InputObject -Until</td>
+<td align="left"><code>-InputObject</code></td>
+<td align="left">First line</td>
+<td align="left"><code>-Until</code></td>
+</tr>
+</tbody>
+</table>
+
+<h1>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h1>
+
+<h2>
+<a id="base-data" class="anchor" href="#base-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base Data</h2>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-k">$</span><span class="pl-smi">InputString</span> <span class="pl-k">=</span> <span class="pl-c1">Get-Help</span> <span class="pl-k">|</span> <span class="pl-c1">Out-String</span> <span class="pl-k">-</span>Stream <span class="pl-k">|</span> <span class="pl-c1">Select-Object</span> <span class="pl-k">-</span>First <span class="pl-c1"><span class="pl-c1">15</span></span></pre></div>
+
+<pre><code>TOPIC
+    Windows PowerShell Help System
+
+SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts.
+
+LONG DESCRIPTION
+    Windows PowerShell Help describes Windows PowerShell cmdlets,
+    functions, scripts, and modules, and explains concepts, including
+    the elements of the Windows PowerShell language.
+
+    Windows PowerShell does not include help files, but you can read the
+    help topics online, or use the Update-Help cmdlet to download help files
+    to your computer and then use the Get-Help cmdlet to display the help
+</code></pre>
+
+<h2>
+<a id="get--inputobject--from-until-last-line" class="anchor" href="#get--inputobject--from-until-last-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get -InputObject -From until last line</h2>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-SubString</span> <span class="pl-k">-</span>InputObject <span class="pl-k">$</span><span class="pl-smi">InputString</span> <span class="pl-k">-</span><span class="pl-k">From</span> <span class="pl-s">'Short Description'</span></pre></div>
+
+<pre><code>SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts.
+
+LONG DESCRIPTION
+    Windows PowerShell Help describes Windows PowerShell cmdlets,
+    functions, scripts, and modules, and explains concepts, including
+    the elements of the Windows PowerShell language.
+
+    Windows PowerShell does not include help files, but you can read the
+    help topics online, or use the Update-Help cmdlet to download help files
+    to your computer and then use the Get-Help cmdlet to display the help
+</code></pre>
+
+<h2>
+<a id="get--inputobject--from-until-empty-line" class="anchor" href="#get--inputobject--from-until-empty-line" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get -InputObject -From until empty line</h2>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-SubString</span> <span class="pl-k">-</span>InputObject <span class="pl-k">$</span><span class="pl-smi">InputString</span> <span class="pl-k">-</span><span class="pl-k">From</span> <span class="pl-s">'Short Description'</span> <span class="pl-k">-</span>EmptyLine</pre></div>
+
+<pre><code>SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts.
+</code></pre>
+
+<h2>
+<a id="get--inputobject--from--until" class="anchor" href="#get--inputobject--from--until" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get -InputObject -From -Until</h2>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-SubString</span> <span class="pl-k">-</span>InputObject <span class="pl-k">$</span><span class="pl-smi">InputString</span> <span class="pl-k">-</span><span class="pl-k">From</span> <span class="pl-s">'Short Description'</span> <span class="pl-k">-</span><span class="pl-k">Until</span> <span class="pl-s">'elements'</span></pre></div>
+
+<pre><code>SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts.
+
+LONG DESCRIPTION
+    Windows PowerShell Help describes Windows PowerShell cmdlets,
+    functions, scripts, and modules, and explains concepts, including
+    the elements
+</code></pre>
+
+<h2>
+<a id="get--inputobject--until" class="anchor" href="#get--inputobject--until" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get -InputObject -Until</h2>
+
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-SubString</span> <span class="pl-k">-</span>InputObject <span class="pl-k">$</span><span class="pl-smi">InputString</span> <span class="pl-k">-</span><span class="pl-k">Until</span> <span class="pl-s">'elements'</span></pre></div>
+
+<pre><code>TOPIC
+    Windows PowerShell Help System
+
+SHORT DESCRIPTION
+    Displays help about Windows PowerShell cmdlets and concepts.
+
+LONG DESCRIPTION
+    Windows PowerShell Help describes Windows PowerShell cmdlets,
+    functions, scripts, and modules, and explains concepts, including
+    the elements
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/QuietusPlus/Get-SubString">Get-SubString</a> is maintained by <a href="https://github.com/QuietusPlus">QuietusPlus</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
