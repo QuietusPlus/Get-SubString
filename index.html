@@ -22,43 +22,48 @@
       <h1>
 <a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h1>
 
-<p>Get <code>-InputObject</code> and return everything between <code>-From</code> and <code>-Until</code> (or <code>-EmptyLine</code>).</p>
-
-<p>The script currently supports the following operations:</p>
+<p>Get <code>-InputObject</code> and return everything between <code>-From</code> and <code>-Until</code> (or until <code>-EmptyLine</code>). The script currently supports the following operations:</p>
 
 <table>
 <thead>
 <tr>
 <th align="left">Example Title</th>
-<th align="left">Input</th>
-<th align="left">From</th>
-<th align="left">Until</th>
+<th align="center"><code>-InputObject</code></th>
+<th align="center"><code>-From</code></th>
+<th align="center"><code>-Until</code></th>
+<th align="center"><code>-EmptyLine</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Get -InputObject -From until last line</td>
-<td align="left"><code>-InputObject</code></td>
-<td align="left"><code>-From</code></td>
-<td align="left">Last line</td>
+<td align="left">Get <code>-InputObject</code> <code>-From</code> until last line</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
-<td align="left">Get -InputObject -From until empty line</td>
-<td align="left"><code>-InputObject</code></td>
-<td align="left"><code>-From</code></td>
-<td align="left">Empty line</td>
+<td align="left">Get <code>-InputObject</code> <code>-From</code> until empty line</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center">X</td>
 </tr>
 <tr>
-<td align="left">Get -InputObject -From -Until</td>
-<td align="left"><code>-InputObject</code></td>
-<td align="left"><code>-From</code></td>
-<td align="left"><code>-Until</code></td>
+<td align="left">Get <code>-InputObject</code> <code>-From</code> <code>-Until</code>
+</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td align="left">Get -InputObject -Until</td>
-<td align="left"><code>-InputObject</code></td>
-<td align="left">First line</td>
-<td align="left"><code>-Until</code></td>
+<td align="left">Get <code>-InputObject</code> from first line <code>-Until</code>
+</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center"></td>
 </tr>
 </tbody>
 </table>
