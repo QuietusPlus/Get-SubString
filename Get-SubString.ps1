@@ -49,16 +49,12 @@ function Get-SubString {
         https://github.com/QuietusPlus/Get-SubString
     #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName='From')]
     [OutputType([string])]
 
     param(
         # Object to be processed.
         [Parameter(Position=0, Mandatory=$true, ValueFromPipeline=$true)]
-        [Parameter(Mandatory=$true, ParameterSetName='From')]
-        [Parameter(Mandatory=$true, ParameterSetName='Until')]
-        [Parameter(Mandatory=$true, ParameterSetName='FromUntil')]
-        [Parameter(Mandatory=$true, ParameterSetName='EmptyLine')]
         $InputObject,
 
         # Start capturing at the specified string.
